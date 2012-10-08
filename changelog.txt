@@ -1,0 +1,62 @@
+*** Winfield Changelog ***
+
+
+2011.01.20 - Version 1.0
+
+  * changelog.txt - Added changelog and revised version number
+
+2012.01.21 - version 1.0.1
+  * updated Genesis Template version number
+  * updated theme version number
+  * updated changelog
+
+2012.01.21 - version 1.1.0
+  * added page-portfolio.php
+  * updated style.css and theme version number
+  * updated functions.php
+  * updated README
+  * updated changelog
+
+2012.01.22 - version 1.1.1
+  * fixed typo in functions.php
+  * fixed typo in page-portfolio.php
+  * updated version number
+  * updated changelog
+
+2012.01.23 - version 1.2.0
+  * removed forced homepage layout from functions.php
+  * rewrote home.php and added forced layout as a conditional - if widgets are active full width content in effect otherwise default layout in effect
+  * updated version number
+  * updated changelog
+
+2012.02.06 - version 1.3.0
+  * added Genesis Box
+  * added support for Post Formats
+  * updated changelog and version number
+
+2012.02.09 - version 1.4.0
+  * added internationalization support
+  * updated changelog and version number
+
+2012.07.07 - version 1.5.0
+  * cleaned up style.css in accordance with Genesis CSS Best Practices == http://www.briangardner.com/code/css-best-practices/
+  * restyled Alert Boxes and renamed them Content Boxes. I prefer Brian's naming convention == http://www.briangardner.com/genesis-content-boxes/
+  * updated changelog
+  * updated README
+
+2012.09.06 - version 2.0
+  * complete theme rewrite
+  * responsive layout
+  * updated style.css
+  * updated functions.php
+  * updated README
+  * updated changelog
+
+2012.09.15 - version 2.0.1
+  * fixed bug in home.php that prevented Genesis Responsive Slider from appearing unless another widget was also active
+  * updated style.css
+  * updated README
+  * updated changelog
+
+2012.09.28 - version 2.0.2
+  * fixed responsive styling for Genesis Responsive Slider
