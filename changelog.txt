@@ -60,3 +60,6 @@
 
 2012.09.28 - version 2.0.2
   * fixed responsive styling for Genesis Responsive Slider
+
+2012.10.15 - version 2.0.3
+  * added separate class for pullquotes and adjusted styling

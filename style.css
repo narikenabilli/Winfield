@@ -5,12 +5,12 @@
 	Author: WPCanada
 	Author URI: http://wpcanada.ca
  
-	Version: 2.0.2
+	Version: 2.0.3
  
 	Tags: black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
  
 	Template: genesis
-	Template Version: 1.8
+	Template Version: 1.8.2
  
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -681,38 +681,26 @@ p.subscribe-to-comments {
 
 .pullquote-left,
 .pullquote-right {
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	background-color: transparent !important;
-	border-bottom: 2px solid #2a8ec8;
-	border-radius: 0;
-	border-top: 2px solid #2a8ec8;
+	border-bottom: double #2a8ec8;
+	border-top: double #2a8ec8;
 	clear: both;
 	color: #777;
 	font-size: 20px;
 	font-style: italic;
-	line-height: 28px;
-	margin-top: 10px !important;
-	padding:  25px 15px 15px !important;
-	width: 33%;
+	line-height: 1.4;
+	padding: 7px 0;
+	text-align: center;
+	width: 35%;
 }
 
 .pullquote-left {
-	display: inline;
 	float: left;
+	margin: 15px 15px 15px 0;
 }
 
 .pullquote-right {
-	display: inline;
 	float: right;
-}
-
-.pullquote-left p,
-.pullquote-right p {
-	color: #777;
-	font-size: 20px;
-	line-height: 28px !important;
-	text-indent: 0em !important;
+	margin: 15px 0 15px 15px;
 }
 
 
