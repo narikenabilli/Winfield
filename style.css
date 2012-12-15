@@ -5,7 +5,7 @@
 	Author: WPCanada
 	Author URI: http://wpcanada.ca
  
-	Version: 2.0.4
+	Version: 2.1.0
  
 	Tags: black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
  
@@ -45,6 +45,7 @@
 * Images
 * Post Navigation
 * Single Post Navigation
+* Page Links Navigation
 * Primary / Secondary Sidebars
 * Dropdowns
 * Featured Page / Post
@@ -1263,6 +1264,37 @@ p.wp-caption-text {
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+
+
+/* Page Links Navigation
+------------------------------------------------------------ */
+
+p.pages {
+	clear: both;
+	display: block;
+	margin: 20px 0;
+}
+
+p.pages a,
+p.pages a:active,
+p.pages a:hover {
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	margin: 0;
+	padding: 2px 3px;
+	text-decoration: none;
+}
+
+p.pages a:active,
+p.pages a:hover {
+	background-color: #2a8ec8;
+	border: 1px solid #2a8ec8;
+	color: #fff;
+}
+
+p.pages span {
+	margin-right: 6px;
 }
 
 
