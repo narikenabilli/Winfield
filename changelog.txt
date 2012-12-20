@@ -69,3 +69,6 @@
 
 2012.12.15 - version 2.1.0
   * added styling for Page Links (paginated posts)
+
+2012.12.20 - version 2.1.1
+  * replaced deprecated add_custom_background() with add_theme_support( 'custom-background' )
