@@ -5,12 +5,12 @@
 	Author: WPCanada
 	Author URI: http://wpcanada.ca
  
-	Version: 2.1.1
+	Version: 2.2.0
  
 	Tags: black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
  
 	Template: genesis
-	Template Version: 1.8.2
+	Template Version: 1.9
  
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -1641,11 +1641,13 @@ input:hover[type="submit"],
 /* eNews and Update Widget
 ------------------------------------------------------------ */
 
-.enews #subbox {
+.enews #subbox,
+.enews #subbox1,
+.enews #subbox2 {
 	background-color: #fff;
 	color: #2a8ec8;
 	font-family: 'Oswald', arial, serif;
-	margin: 0;
+	margin: 0 0 15px;
 	padding: 11px 10px;
 	width: 190px;
 }
@@ -2085,8 +2087,11 @@ html > body.winfield .slide-excerpt-border {
 		width: 120px;
 	}
 
-	.enews #subbox {
+	.enews #subbox,
+	.enews #subbox1,
+	.enews #subbox2 {
 		background: #fff;
+		display:block;
 		padding: 15px 0 13px 10px;
 	}
 

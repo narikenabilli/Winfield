@@ -110,6 +110,7 @@ can see an example of it in action by visiting the demo site and typing in a non
 <strong>Plugins</strong>
 Genesis Responsive Slider - <a href="http://wordpress.org/extend/plugins/genesis-responsive-slider/">http://wordpress.org/extend/plugins/genesis-responsive-slider/</a>
 Regenerate Thumbnails - <a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/">http://wordpress.org/extend/plugins/regenerate-thumbnails/</a>
+Genesis eNews Extended - <a href="http://wordpress.org/extend/plugins/genesis-enews-extended/">http://wordpress.org/extend/plugins/genesis-enews-extended/</a>
 
 <strong>CREDIT</strong>
 1. Post Format icons courtesy StudioPress &ndash; http://www.studiopress.com/graphics/post-format-icons
