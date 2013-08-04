@@ -67,14 +67,6 @@ function winfield_breadcrumb_args( $args ) {
     //require( CHILD_DIR.'/genesis-box.php' );
 //}
 
-/** Customize the post meta function */
-add_filter( 'genesis_post_meta', 'post_meta_filter' );
-function post_meta_filter($post_meta) {
-if ( !is_page() ) {
-    $post_meta = '[post_categories before="Filed Under: "] [post_tags before="Tagged With: "]';
-    return $post_meta;
-}}
-
 /** Modify the size of the Gravatar in the author box */
 add_filter( 'genesis_author_box_gravatar_size', 'winfield_author_box_gravatar_size' );
 function winfield_author_box_gravatar_size($size) {
@@ -88,13 +80,13 @@ function custom_post_nav(){
     echo '<div class="post-nav">';
     echo '<div class="next-post-nav">';
     echo '<span class="next">';
-    echo 'Next Article';
+    echo (__( 'Next Article', 'winfield' ));
     echo '</span>';
     echo next_post_link('%link', '%title');
     echo '</div>';
     echo '<div class="prev-post-nav">';
     echo '<span class="prev">';
-    echo 'Previous Article';
+    echo (__( 'Previous Article', 'winfield' ));
     echo '</span>';
     echo previous_post_link('%link', '%title');
     echo '</div>';
