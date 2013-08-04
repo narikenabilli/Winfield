@@ -73,25 +73,26 @@ function winfield_author_box_gravatar_size($size) {
     return '80';
 }
 
-/** Add post nav to single post pages */
-add_action('genesis_before_comments', 'custom_post_nav');
-function custom_post_nav(){
- if (is_single()) {
-    echo '<div class="post-nav">';
-    echo '<div class="next-post-nav">';
-    echo '<span class="next">';
-    echo (__( 'Next Article', 'winfield' ));
-    echo '</span>';
-    echo next_post_link('%link', '%title');
-    echo '</div>';
-    echo '<div class="prev-post-nav">';
-    echo '<span class="prev">';
-    echo (__( 'Previous Article', 'winfield' ));
-    echo '</span>';
-    echo previous_post_link('%link', '%title');
-    echo '</div>';
-    echo '</div>';
-  }}
+// Add single post navigation
+add_action( 'genesis_before_comments', 'winfield_post_nav' );
+function winfield_post_nav(){
+	if (is_single()) {
+	echo '<div class="post-nav">';
+	echo '<div class="next-post-nav">';
+	echo '<span class="next">';
+	echo (__( 'Next Article', 'winfield' ));
+	echo '</span>';
+	echo next_post_link('%link', '%title');
+	echo '</div>';
+	echo '<div class="prev-post-nav">';
+	echo '<span class="prev">';
+	echo (__( 'Previous Article', 'winfield' ));
+	echo '</span>';
+	echo previous_post_link('%link', '%title');
+	echo '</div>';
+	echo '</div>';
+	}
+}
 
 /** Add custom body class to the head */
 add_filter( 'body_class', 'add_body_class' );
@@ -134,30 +135,30 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 genesis_register_sidebar( array(
 	'id'			=> 'home-slider',
 	'name'			=> __( 'Home Slider', 'winfield' ),
-	'description'	=> __( 'This is the homepage slider section.', 'winfield' ),
+	'description'		=> __( 'This is the homepage slider section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
 	'id'			=> 'home-welcome',
 	'name'			=> __( 'Home Welcome', 'winfield' ),
-	'description'	=> __( 'This is the homepage welcome section.', 'winfield' ),
+	'description'		=> __( 'This is the homepage welcome section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
 	'id'			=> 'home-left',
 	'name'			=> __( 'Home Left', 'winfield' ),
-	'description'	=> __( 'This is the homepage left section.', 'winfield' ),
+	'description'		=> __( 'This is the homepage left section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
 	'id'			=> 'home-middle',
 	'name'			=> __( 'Home Middle', 'winfield' ),
-	'description'	=> __( 'This is the homepage middle section.', 'winfield' ),
+	'description'		=> __( 'This is the homepage middle section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
 	'id'			=> 'home-right',
 	'name'			=> __( 'Home Right', 'winfield' ),
-	'description'	=> __( 'This is the homepage right section.', 'winfield' ),
+	'description'		=> __( 'This is the homepage right section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'		=> '404-page',
-	'name'		=> __( '404 Page', 'winfield' ),
-	'description'	=> __( 'This is the widget area of the 404 Not Found Page Template.', 'winfield' ),
+	'id'			=> '404-page',
+	'name'			=> __( '404 Page', 'winfield' ),
+	'description'		=> __( 'This is the widget area of the 404 Not Found Page Template.', 'winfield' ),
 ) );
