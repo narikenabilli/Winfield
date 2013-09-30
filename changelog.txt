@@ -78,3 +78,13 @@
 
 03 AUG 2013 - version 2.2.1
   * fixed translation problem
+
+30 SEPT 2013 - version 3.0.0
+	* updated theme for HTML5
+	* added new widget Page Template
+	* updated styling
+	* optimized images
+	* removed support for Post Formats
+	* removed widget support for 404 Error Page in favour of plugin
+	* removed support for Genesis Box in favour of plugin
+	* introduced new method for responsive menus

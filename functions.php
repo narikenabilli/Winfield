@@ -1,79 +1,75 @@
 <?php
-/** Start the engine */
-require_once( get_template_directory() . '/lib/init.php' );
+//* Start the engine
+include_once( get_template_directory() . '/lib/init.php' );
 
-/** Localization */
-load_child_theme_textdomain( 'winfield', get_stylesheet_directory() . '/lib/languages' );
+//* Set Localization (do not remove)
+load_child_theme_textdomain( 'winfield', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/lib/languages', 'winfield' ) );
 
-/** Child theme (do not remove) */
-define( 'CHILD_THEME_NAME', 'Winfield Child Theme' );
+//* Child theme (do not remove)
+define( 'CHILD_THEME_NAME', __( 'Winfield Theme', 'winfield' ) );
 define( 'CHILD_THEME_URL', 'http://wpcanada.ca/our-themes/winfield' );
+define( 'CHILD_THEME_VERSION', '3.0.0' );
 
-/** Load Google fonts */
-add_action( 'wp_enqueue_scripts', 'winfield_load_google_fonts' );
-function winfield_load_google_fonts() {
-    wp_enqueue_style( 
-    	'google-fonts', 
-    	'http://fonts.googleapis.com/css?family=Oswald', 
-    	array(), 
-    	PARENT_THEME_VERSION 
-    );
+//* Add HTML5 markup structure
+add_theme_support( 'html5' );
+
+//* Add viewport meta tag for mobile browsers
+add_theme_support( 'genesis-responsive-viewport' );
+
+//* Enqueue Google fonts
+add_action( 'wp_enqueue_scripts', 'winfield_google_fonts' );
+function winfield_google_fonts() {
+	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Slab:300,400', array(), CHILD_THEME_VERSION );
 }
 
-/** Add Viewport meta tag for mobile browsers */
-add_action( 'genesis_meta', 'winfield_add_viewport_meta_tag' );
-function winfield_add_viewport_meta_tag() {
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
-}
+/**
+ * Register and Enqueue Responsive Menu Script
+ * 
+ * @author Brad Potter
+ * 
+ * @link http://www.bradpotter.com
+ */
+function winfield_menu_script() {
+	wp_register_script( 'responsive-menu', get_stylesheet_directory_uri() . '/lib/js/responsivemenus.js', array('jquery'), '1.0.0', false );
+	wp_enqueue_script( 'responsive-menu' );
 
-/** Add support for structural wraps */
-add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
+ }
+add_action('wp_enqueue_scripts', 'winfield_menu_script');
 
-/** Add new image sizes */
-add_image_size( 'blogpage', 120, 120, TRUE );
-add_image_size( 'grid-thumbnail', 280, 100, TRUE );
-add_image_size( 'home-bottom', 290, 150, TRUE );
-add_image_size( 'slider', 960, 300, TRUE );
+//* Add new image sizes
+add_image_size( 'mini', 80, 80, TRUE );
+add_image_size( 'square', 120, 120, TRUE );
+add_image_size( 'home-middle', 340, 150, TRUE );
+add_image_size( 'slider', 1180, 400, TRUE );
 
-/** Set Genesis Responsive Slider defaults */
-add_filter( 'genesis_responsive_slider_settings_defaults', 'winfield_responsive_slider_defaults' );
-function winfield_responsive_slider_defaults( $defaults ) {
-	$defaults['slideshow_height'] = '300';
-	$defaults['slideshow_width'] = '960';
-	return $defaults;
-}
-
-/** Add support for custom background */
+//* Add support for custom background
 add_theme_support( 'custom-background' );
 
-/** Add support for custom header */
-add_theme_support( 'genesis-custom-header', array( 'width' => 1060, 'height' => 150 ) );
+//* Add support for custom header
+add_theme_support( 'custom-header', array(
+	'width' => 1180,
+	'height' => 200,
+	'header-text'     => false
+) );
+
+//* Add support for 3-column footer widgets
+add_theme_support( 'genesis-footer-widgets', 3 );
+
+//* Add after post block section to single post page
+add_action( 'genesis_entry_footer', 'winfield_after_post_block'  ); 
+function winfield_after_post_block() {
+	if ( is_single() && is_active_sidebar( 'after-post-block' ) ) {
+	echo '<div class="after-post-block"><div class="wrap">';
+	dynamic_sidebar( 'after-post-block' );
+	echo '</div></div>';
+	}
+}
 
 /** Reposition the breadcrumbs */
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_after_header', 'genesis_do_breadcrumbs' );
 
-/** Breadcrumb display */
-add_filter( 'genesis_breadcrumb_args', 'winfield_breadcrumb_args' );
-function winfield_breadcrumb_args( $args ) {
-	$args['sep'] = ' &raquo; ';
-	return $args;
-}
-
-/** Add Genesis Box on Single Posts */
-//add_action( 'genesis_after_post_content', 'include_genesis_box', 11 );
-//function include_genesis_box() {
-    //if ( is_single() )
-    //require( CHILD_DIR.'/genesis-box.php' );
-//}
-
-/** Modify the size of the Gravatar in the author box */
-add_filter( 'genesis_author_box_gravatar_size', 'winfield_author_box_gravatar_size' );
-function winfield_author_box_gravatar_size($size) {
-    return '80';
-}
-
-// Add single post navigation
+//* Add single post navigation
 add_action( 'genesis_before_comments', 'winfield_post_nav' );
 function winfield_post_nav(){
 	if (is_single()) {
@@ -94,71 +90,39 @@ function winfield_post_nav(){
 	}
 }
 
-/** Add custom body class to the head */
-add_filter( 'body_class', 'add_body_class' );
-function add_body_class( $classes ) {
-   $classes[] = 'winfield';
-   return $classes;
-}
-
-/** Add support for post formats **/
-add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-add_theme_support( 'genesis-post-format-images' );
-
-/** Remove elements for post formats */
-add_action( 'genesis_before_post', 'winfield_remove_elements' );
-function winfield_remove_elements() {
-	
-	if ( ! current_theme_supports( 'post-formats' ) )
-		return;
-
-	// Remove if post has format
-	if ( get_post_format() ) {
-		remove_action( 'genesis_post_title', 'genesis_do_post_title' );
-		remove_action( 'genesis_before_post_content', 'genesis_post_info' );
-		remove_action( 'genesis_after_post_content', 'genesis_post_meta' );
-	}
-
-	// Add back, as post has no format
-	else {
-		add_action( 'genesis_post_title', 'genesis_do_post_title' );
-		add_action( 'genesis_before_post_content', 'genesis_post_info' );
-		add_action( 'genesis_after_post_content', 'genesis_post_meta' );
-	}
-
-}
-
-/** Add support for 3-column footer widgets */
-add_theme_support( 'genesis-footer-widgets', 3 );
-
-/** Register widget areas **/
+//* Register widget areas
 genesis_register_sidebar( array(
-	'id'			=> 'home-slider',
-	'name'			=> __( 'Home Slider', 'winfield' ),
-	'description'		=> __( 'This is the homepage slider section.', 'winfield' ),
+	'id'		=> 'home-slider',
+	'name'		=> __( 'Home Slider', 'winfield' ),
+	'description'	=> __( 'This is the home slider section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'			=> 'home-welcome',
-	'name'			=> __( 'Home Welcome', 'winfield' ),
-	'description'		=> __( 'This is the homepage welcome section.', 'winfield' ),
+	'id'		=> 'home-welcome',
+	'name'		=> __( 'Home Welcome', 'winfield' ),
+	'description'	=> __( 'This is the home welcome section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'			=> 'home-left',
-	'name'			=> __( 'Home Left', 'winfield' ),
-	'description'		=> __( 'This is the homepage left section.', 'winfield' ),
+	'id'		=> 'home-left',
+	'name'		=> __( 'Home Left', 'winfield' ),
+	'description'	=> __( 'This is the home left section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'			=> 'home-middle',
-	'name'			=> __( 'Home Middle', 'winfield' ),
-	'description'		=> __( 'This is the homepage middle section.', 'winfield' ),
+	'id'		=> 'home-center',
+	'name'		=> __( 'Home Center', 'winfield' ),
+	'description'	=> __( 'This is the home center section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'			=> 'home-right',
-	'name'			=> __( 'Home Right', 'winfield' ),
-	'description'		=> __( 'This is the homepage right section.', 'winfield' ),
+	'id'		=> 'home-right',
+	'name'		=> __( 'Home Right', 'winfield' ),
+	'description'	=> __( 'This is the home right section.', 'winfield' ),
 ) );
 genesis_register_sidebar( array(
-	'id'			=> '404-page',
-	'name'			=> __( '404 Page', 'winfield' ),
-	'description'		=> __( 'This is the widget area of the 404 Not Found Page Template.', 'winfield' ),
+	'id'		=> 'after-post-block',
+	'name'		=> __( 'After Post Block', 'winfield' ),
+	'description'	=> __( 'This is the after post block section.', 'winfield' ),
+) );
+genesis_register_sidebar( array(
+	'id'		=> 'widget-page',
+	'name'		=> __( 'Widget Page', 'winfield' ),
+	'description'	=> __( 'This is the Widget Page template.', 'winfield' ),
 ) );

@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Winfield child theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-03 19:12-0600\n"
-"PO-Revision-Date: 2013-08-03 19:13-0600\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2013-09-30 12:39-0600\n"
+"PO-Revision-Date: 2013-09-30 12:39-0600\n"
+"Last-Translator: Len Kutchma <lkutchma@gmail.com>\n"
 "Language-Team: WPCanada <lkutchma@gmail.com>\n"
 "Language: English\n"
 "MIME-Version: 1.0\n"
@@ -15,62 +15,70 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ../..\n"
 
-#: ../../functions.php:83
+#: ../../functions.php:9
+msgid "Winfield Theme"
+msgstr ""
+
+#: ../../functions.php:79
 msgid "Next Article"
 msgstr ""
 
-#: ../../functions.php:89
+#: ../../functions.php:85
 msgid "Previous Article"
 msgstr ""
 
-#: ../../functions.php:136
+#: ../../functions.php:96
 msgid "Home Slider"
 msgstr ""
 
-#: ../../functions.php:137
-msgid "This is the homepage slider section."
+#: ../../functions.php:97
+msgid "This is the home slider section."
 msgstr ""
 
-#: ../../functions.php:141
+#: ../../functions.php:101
 msgid "Home Welcome"
 msgstr ""
 
-#: ../../functions.php:142
-msgid "This is the homepage welcome section."
+#: ../../functions.php:102
+msgid "This is the home welcome section."
 msgstr ""
 
-#: ../../functions.php:146
+#: ../../functions.php:106
 msgid "Home Left"
 msgstr ""
 
-#: ../../functions.php:147
-msgid "This is the homepage left section."
+#: ../../functions.php:107
+msgid "This is the home left section."
 msgstr ""
 
-#: ../../functions.php:151
-msgid "Home Middle"
+#: ../../functions.php:111
+msgid "Home Center"
 msgstr ""
 
-#: ../../functions.php:152
-msgid "This is the homepage middle section."
+#: ../../functions.php:112
+msgid "This is the home center section."
 msgstr ""
 
-#: ../../functions.php:156
+#: ../../functions.php:116
 msgid "Home Right"
 msgstr ""
 
-#: ../../functions.php:157
-msgid "This is the homepage right section."
+#: ../../functions.php:117
+msgid "This is the home right section."
 msgstr ""
 
-#: ../../functions.php:161
-msgid "404 Page"
+#: ../../functions.php:121
+msgid "After Post Block"
 msgstr ""
 
-#: ../../functions.php:162
-msgid "This is the widget area of the 404 Not Found Page Template."
+#: ../../functions.php:122
+msgid "This is the after post block section."
 msgstr ""
 
-#: ../../home_loop.php:16
-msgid "[Continue reading]"
+#: ../../functions.php:126
+msgid "Widget Page"
+msgstr ""
+
+#: ../../functions.php:127
+msgid "This is the Widget Page template."
 msgstr ""
