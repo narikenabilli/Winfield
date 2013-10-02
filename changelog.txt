@@ -89,6 +89,6 @@
 	* removed support for Genesis Box in favour of plugin
 	* introduced new method for responsive menus
 
-02 NOV 2013 - version 3.0.1
+02 OCT 2013 - version 3.0.1
 	* replaced custom single post navigation with native Genesis single post navigation which was introduced in Genesis 2.0
 	* updated functions.php and style.css in keeping up with latest Genesis coding standards
