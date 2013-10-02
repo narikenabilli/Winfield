@@ -5,7 +5,7 @@
 	Author: WPCanada
 	Author URI: http://wpcanada.ca/
  
-	Version: 3.0.0
+	Version: 3.0.1
  
 	Tags: black, white, blue, one-column, two-columns, fixed-width, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
  
@@ -175,15 +175,14 @@ h3 {
 }
 
 h4,
-.after-post-block h4,
+.after-post-block .widget-title,
 .archive-title,
-.winfield-home-page #genesis-responsive-slider h2,
-.winfield-home-page #genesis-responsive-slider h2 a,
-.winfield-widget-page .content h2,
-.winfield-widget-page .content h2 a,
-.home-middle h2,
-.home-middle h2 a,
-.taxonomy-description h1 {
+.winfield #genesis-responsive-slider h2,
+.winfield #genesis-responsive-slider h2 a,
+.winfield-widget-page .content .entry-title,
+.winfield-widget-page .content .entry-title a,
+.home-middle .entry-title,
+.home-middle .entry-title a {
 	font-size: 20px;
 	font-size: 2rem;
 }
@@ -194,16 +193,17 @@ h5 {
 }
 
 h6,
-.author-box h1,
+.author-box-title,
 .comment-respond h3,
 .entry-comments h3,
-.sidebar h2 a,
+.sidebar .entry-title,
+.sidebar .entry-title a,
 .widget-title {
 	font-size: 16px;
 	font-size: 1.6rem;
 }
 
-.author-box h1,
+.author-box-title,
 .comment-respond h3,
 .entry-comments h3,
 .widget-title {
@@ -899,10 +899,10 @@ p.pages,
 	margin-bottom: 8rem;
 }
 
+.archive-description,
 .author-box,
 .breadcrumb,
-.sticky,
-.taxonomy-description {
+.sticky {
 	background-color: #f5f5f5;
 	margin-bottom: 48px;
 	margin-bottom: 4.8rem;
@@ -911,8 +911,8 @@ p.pages,
 	padding: 3.2rem;
 }
 
-.author-box,
-.taxonomy-description {
+.archive-description,
+.author-box {
 	border-radius: 3px;
 }
 
@@ -935,15 +935,15 @@ p.pages,
 	text-decoration: underline;
 }
 
-.after-post-block,
+.after-post-block.widget-area,
 .after-post-block .wrap,
 .featuredpage .page,
 .featuredpost .post,
-.home-middle {
+.home-middle.widget-area {
 	overflow: hidden;
 }
 
-.after-post-block {
+.after-post-block.widget-area {
 	background-color: #f5f5f5;
 	border-radius: 3px;
 	margin-top: 32px;
@@ -1187,21 +1187,22 @@ h3,
 h4,
 h5,
 h6,
+.archive-title,
 .entry-title a {
 	margin-bottom: 16px;
 	margin-bottom: 1.6rem;
 }
 
-.author-box h1 {
+.author-box-title {
 	margin: 0
 }
 
-.featuredpost h2 {
+.featuredpost .entry-title {
 	margin-bottom: 8px;
 	margin-bottom: 0.8rem;
 }
 
-.home-middle .featuredpost h2 {
+.home-middle .featuredpost .entry-title {
 	margin: 8px 0;
 	margin: 0.8rem 0;
 }
@@ -1211,17 +1212,12 @@ h6,
 	margin-bottom: 2rem;
 }
 
-.taxonomy-description h1 {
-	margin-bottom: 4px;
-	margin-bottom: 0.4rem;
-}
-
 .archive-title {
 	margin-bottom: 24px;
 	margin-bottom: 2.4rem;
 }
 
-.sidebar h4.widgettitle {
+.sidebar .widgettitle {
 	background-color: #f5f5f5;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f5f5), to(#e3e3e3));
 	background: -webkit-linear-gradient(top, #f5f5f5, #e3e3e3);
@@ -1234,8 +1230,7 @@ h6,
 	padding: 1rem 0 1rem 1rem;
 }
 
-.content .post h1,
-.content .post h2 {
+.content .post .entry-title {
 	margin-bottom: 0;
 
 }
@@ -1275,35 +1270,43 @@ h6,
 08 Post Navigation
 ---------------------------------------------------------------------------------------------------- */
 
-.pagination li {
+.archive-pagination {
+	clear: both;
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 40px 0;
+	margin: 4rem 0;
+}
+
+.archive-pagination li {
 	display: inline;
 }
 
-.pagination li a,
-.pagination li a:hover,
-.pagination li.active a,
-.pagination li.disabled {
+.archive-pagination li a {
 	background-color: #333;
 	border-radius: 3px;
 	color: #fff;
 	cursor: pointer;
+	display: inline-block;
+	margin-bottom: 4px;
+	margin-bottom: 0.4rem;
 	padding: 10px 15px;
 	padding: 1rem 1.5rem;
-}
-
-.pagination li a {
-	font-family: 'Roboto', sans-serif;
 	text-decoration: none;
 }
 
-.pagination li a:hover,
-.pagination li.active a {
+.archive-pagination li a:hover,
+.archive-pagination li.active a {
 	background-color: #2a8ec8;
 }
 
 /* 08a - Single Post Navigation ----------- */
 
-.post-nav {
+.adjacent-entry-pagination {
+	clear: both;
+	display: block;
+	font-size: 13px;
+	font-size: 1.3rem;
 	margin: 30px 0;
 	margin: 3rem 0;
 	overflow: auto;
@@ -1311,41 +1314,10 @@ h6,
 	padding: 0.5rem 0;
 }
 
-.post-nav span.next,
-.post-nav span.prev {
-	border-bottom: 1px solid #ddd;
-	display: block;
-	margin-bottom: 5px;
-	margin-bottom: 0.5rem;
-}
-
-.post-nav a {
-	text-decoration: none;
-}
-
-.post-nav a:hover {
-	text-decoration: underline;
-}
-
-.post-nav a:active {
-}
-
-.next-post-nav {
-	float: left;
-	width: 50%;
-}
-
-.prev-post-nav {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
-
-.post-nav a,
-.post-nav span.next,
-.post-nav span.prev {
-	font-size: 13px;
-	font-size: 1.3rem;
+.pagination-previous.alignleft,
+.pagination-previous.alignright {
+	margin-bottom: 10px;
+	margin-bottom: 1rem;
 }
 
 
@@ -1598,6 +1570,21 @@ textarea {
 	width: 100%;
 }
 
+input:focus,
+textarea:focus {
+	border: 1px solid #999;
+	outline: none;
+}
+
+::-moz-placeholder {
+	color: #999;
+	opacity: 1;
+}
+
+::-webkit-input-placeholder {
+	color: #999;
+}
+
 .search-form {
 	overflow: hidden;
 	width: 100%;
@@ -1657,36 +1644,58 @@ input:hover[type="submit"],
 
 /* 13a - Genesis eNews Extended ----------- */
 
-.enews #subbox,
-.enews #subbox1,
-.enews #subbox2 {
-	margin: 0 0 15px;
-	margin: 0 0 1.5rem;
+.sidebar .enews-widget {
+	background-color: #2a8ec8;
+	color: #fff;
+	padding: 25px 20px 24px;
+	padding: 2.5rem 2rem 2.4rem;
+	text-align: center;
 }
 
-.sidebar-primary .enews input[type="submit"] {
+.sidebar .enews-widget .widget-title {
+	background: transparent;
+	border-bottom: 0;
+	border-left: 0;
+	color: #fff;
+	padding: 0;
+	text-align: left;
+}
+
+.after-post-block .enews-widget input,
+.footer-widgets .enews-widget input,
+.sidebar .enews-widget input {
+	margin-bottom: 16px;
+	margin-bottom: 1.6rem;
+}
+
+.after-post-block .enews-widget #subbox,
+.after-post-block .enews-widget #subbox1,
+.after-post-block .enews-widget #subbox2,
+.sidebar .enews-widget #subbox,
+.sidebar .enews-widget #subbox1,
+.sidebar .enews-widget #subbox2 {
+	background: #fff url(images/enews-subbox.png) no-repeat center left;
+	padding: 16px 0 18px 37px;
+	padding: 1.6rem 0 1.8rem 3.7rem;
+}
+
+.after-post-block .enews-widget #subbox1,
+.after-post-block .enews-widget #subbox2,
+.sidebar .enews-widget #subbox1,
+.sidebar .enews-widget #subbox2 {
+	background: #fff url(images/enews-subbox-name.png) no-repeat center left;
+}
+
+.sidebar .enews-widget input[type="submit"] {
 	background-color: #333;
 	color: #fff;
 	margin: 0;
 	width: 100%;
 }
 
-.sidebar-primary .enews input:hover[type="submit"] {
-	background-color: #2a8ec8;
-	color: #fff;
-}
-
-.enews #subbox,
-.enews #subbox1,
-.enews #subbox2 {
-	background: #fff url(images/enews-subbox.png) no-repeat center left;
-	padding: 16px 0 18px 37px;
-	padding: 1.6rem 0 1.8rem 3.7rem;
-}
-
-.enews #subbox1,
-.enews #subbox2 {
-	background: #fff url(images/enews-subbox-name.png) no-repeat center left;
+.sidebar .enews-widget input:hover[type="submit"] {
+	background-color: #fff;
+	color: #222;
 }
 
 .footer-widgets .enews input[type="submit"] {
@@ -1846,84 +1855,83 @@ p.wp-caption-text {
 
 /* 15a - Home Slider ----------- */
 
-.home-slider {
+.home-slider.widget-area {
 	clear: both;
 	margin: 0 0 40px;
 	margin: 0 0 4rem;
 	overflow: hidden;
 }
 
-.winfield-home-page #genesis-responsive-slider {
+.winfield #genesis-responsive-slider {
 	border: 0;
 	margin: 0 auto;
 	width: auto;
 }
 
-.winfield-home-page #genesis-responsive-slider img {
+.winfield #genesis-responsive-slider img {
 	border: 0;
 	margin: 0 auto;
 	max-width: 100%;
 	padding: 0;
 }
 
-.winfield-home-page .slide-excerpt {
+.winfield .slide-excerpt {
 	background-color: #1b1b1b;
 	margin: 0;
 	padding: 0px 3px;
 	padding: 0 0.3rem;
 }
 
-.winfield-home-page #genesis-responsive-slider .flex-direction-nav li .next,
-.winfield-home-page #genesis-responsive-slider .flex-direction-nav li .prev {
+.winfield #genesis-responsive-slider .flex-direction-nav li .next,
+.winfield #genesis-responsive-slider .flex-direction-nav li .prev {
 	bottom: 15px;
 	left: auto;
 	top: auto;
 }
 
-.winfield-home-page #genesis-responsive-slider .flex-direction-nav li .prev {
+.winfield #genesis-responsive-slider .flex-direction-nav li .prev {
 	right: 72px !important;
 }
 
-.winfield-home-page #genesis-responsive-slider .flex-direction-nav li .next {
+.winfield #genesis-responsive-slider .flex-direction-nav li .next {
 	right: 20px !important;
 }
 
-html > body.winfield-home-page .slide-excerpt-border {
+html > body.winfield .slide-excerpt-border {
 	border: none;
 	padding: 0;
 }
 
-.winfield-home-page #genesis-responsive-slider a,
-.winfield-home-page #genesis-responsive-slider h2,
-.winfield-home-page #genesis-responsive-slider h2 a,
-.winfield-home-page #genesis-responsive-slider p {
+.winfield #genesis-responsive-slider a,
+.winfield #genesis-responsive-slider h2,
+.winfield #genesis-responsive-slider h2 a,
+.winfield #genesis-responsive-slider p {
 	color: #fff;
 	text-decoration: none;
 }
 
-.winfield-home-page #genesis-responsive-slider p {
+.winfield #genesis-responsive-slider p {
 	font-size: 14px;
 	font-size: 1.4rem;
 }
 
-.winfield-home-page #genesis-responsive-slider h2 a:hover,
-.winfield-home-page #genesis-responsive-slider a:hover {
+.winfield #genesis-responsive-slider h2 a:hover,
+.winfield #genesis-responsive-slider a:hover {
 	text-decoration: underline;
 }
 
 /* 15b - Home Welcome ----------- */
 
-.home-welcome {
+.home-welcome.widget-area {
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
-}
-
-.welcome-wrap {
 	clear: both;
 	color: #777;
 	font-family: Georgia,Times,'Times New Roman',serif;
 	font-size: 24px;
 	font-size: 2.4rem;
+	margin: 0 0 40px;
+	margin: 0 0 4rem;
 	overflow: hidden;
 	padding: 30px;
 	padding: 3rem;
@@ -1946,12 +1954,11 @@ html > body.winfield-home-page .slide-excerpt-border {
 
 .home-middle {
 	clear: both;
-	margin: 0 auto -120px;
-	margin: 0 auto -12rem;
+	margin: 0 auto -40px;
+	margin: 0 auto -4rem;
 	max-width: 1180px;
 	overflow: hidden;
-	padding: 40px;
-	padding: 4rem;
+
 }
 
 .home-middle .widget {
@@ -2094,7 +2101,7 @@ html > body.winfield-home-page .slide-excerpt-border {
 		max-width: 960px;
 	}
 
-	.winfield-home-page .slide-excerpt,
+	.winfield .slide-excerpt,
 	.flex-direction-nav,
 	.genesis-nav-menu > .right,
 	.site-header .search-form {

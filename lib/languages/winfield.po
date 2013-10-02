@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Winfield child theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-30 12:39-0600\n"
-"PO-Revision-Date: 2013-09-30 12:39-0600\n"
+"POT-Creation-Date: 2013-10-02 13:32-0600\n"
+"PO-Revision-Date: 2013-10-02 13:32-0600\n"
 "Last-Translator: Len Kutchma <lkutchma@gmail.com>\n"
 "Language-Team: WPCanada <lkutchma@gmail.com>\n"
 "Language: English\n"
@@ -19,66 +19,58 @@ msgstr ""
 msgid "Winfield Theme"
 msgstr ""
 
-#: ../../functions.php:79
-msgid "Next Article"
-msgstr ""
-
-#: ../../functions.php:85
-msgid "Previous Article"
-msgstr ""
-
-#: ../../functions.php:96
+#: ../../functions.php:82
 msgid "Home Slider"
 msgstr ""
 
-#: ../../functions.php:97
+#: ../../functions.php:83
 msgid "This is the home slider section."
 msgstr ""
 
-#: ../../functions.php:101
+#: ../../functions.php:87
 msgid "Home Welcome"
 msgstr ""
 
-#: ../../functions.php:102
+#: ../../functions.php:88
 msgid "This is the home welcome section."
 msgstr ""
 
-#: ../../functions.php:106
+#: ../../functions.php:92
 msgid "Home Left"
 msgstr ""
 
-#: ../../functions.php:107
+#: ../../functions.php:93
 msgid "This is the home left section."
 msgstr ""
 
-#: ../../functions.php:111
+#: ../../functions.php:97
 msgid "Home Center"
 msgstr ""
 
-#: ../../functions.php:112
+#: ../../functions.php:98
 msgid "This is the home center section."
 msgstr ""
 
-#: ../../functions.php:116
+#: ../../functions.php:102
 msgid "Home Right"
 msgstr ""
 
-#: ../../functions.php:117
+#: ../../functions.php:103
 msgid "This is the home right section."
 msgstr ""
 
-#: ../../functions.php:121
+#: ../../functions.php:107
 msgid "After Post Block"
 msgstr ""
 
-#: ../../functions.php:122
+#: ../../functions.php:108
 msgid "This is the after post block section."
 msgstr ""
 
-#: ../../functions.php:126
+#: ../../functions.php:112
 msgid "Widget Page"
 msgstr ""
 
-#: ../../functions.php:127
+#: ../../functions.php:113
 msgid "This is the Widget Page template."
 msgstr ""

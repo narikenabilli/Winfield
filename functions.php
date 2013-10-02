@@ -8,7 +8,7 @@ load_child_theme_textdomain( 'winfield', apply_filters( 'child_theme_textdomain'
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', __( 'Winfield Theme', 'winfield' ) );
 define( 'CHILD_THEME_URL', 'http://wpcanada.ca/our-themes/winfield' );
-define( 'CHILD_THEME_VERSION', '3.0.0' );
+define( 'CHILD_THEME_VERSION', '3.0.1' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );
@@ -58,11 +58,15 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 //* Add after post block section to single post page
 add_action( 'genesis_entry_footer', 'winfield_after_post_block'  ); 
 function winfield_after_post_block() {
-	if ( is_single() && is_active_sidebar( 'after-post-block' ) ) {
-	echo '<div class="after-post-block"><div class="wrap">';
-	dynamic_sidebar( 'after-post-block' );
-	echo '</div></div>';
-	}
+
+    if ( ! is_singular( 'post' ) )
+    	return;
+
+    genesis_widget_area( 'after-post-block', array(
+		'before' => '<div class="after-post-block widget-area"><div class="wrap">',
+		'after'  => '</div></div>',
+    ) );
+
 }
 
 /** Reposition the breadcrumbs */
@@ -70,25 +74,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 add_action( 'genesis_after_header', 'genesis_do_breadcrumbs' );
 
 //* Add single post navigation
-add_action( 'genesis_before_comments', 'winfield_post_nav' );
-function winfield_post_nav(){
-	if (is_single()) {
-	echo '<div class="post-nav">';
-	echo '<div class="next-post-nav">';
-	echo '<span class="next">';
-	echo (__( 'Next Article', 'winfield' ));
-	echo '</span>';
-	echo next_post_link('%link', '%title');
-	echo '</div>';
-	echo '<div class="prev-post-nav">';
-	echo '<span class="prev">';
-	echo (__( 'Previous Article', 'winfield' ));
-	echo '</span>';
-	echo previous_post_link('%link', '%title');
-	echo '</div>';
-	echo '</div>';
-	}
-}
+add_action( 'genesis_before_comments', 'genesis_prev_next_post_nav' );
 
 //* Register widget areas
 genesis_register_sidebar( array(
