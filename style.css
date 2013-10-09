@@ -5,7 +5,7 @@
 	Author: WPCanada
 	Author URI: http://wpcanada.ca/
  
-	Version: 3.0.1
+	Version: 3.0.2
  
 	Tags: black, white, blue, one-column, two-columns, fixed-width, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
  
@@ -505,6 +505,12 @@ blockquote p {
 
 blockquote p {
 	font-style: italic;
+}
+
+.winfield-landing-page .site-container {
+	border-top: 0;
+	margin: 20px auto;
+	max-width: 960px;
 }
 
 /* 04e - Post Info & Meta ----------- */
@@ -2107,6 +2113,11 @@ html > body.winfield .slide-excerpt-border {
 	.site-header .search-form {
 		display: none;
 	}
+
+	.winfield-landing-page .site-container {
+		margin: 0 auto;
+	}
+
 }
 
 /* iPads (portrait) ----------- */

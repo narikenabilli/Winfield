@@ -92,3 +92,7 @@
 02 OCT 2013 - version 3.0.1
 	* replaced custom single post navigation with native Genesis single post navigation which was introduced in Genesis 2.0
 	* updated functions.php and style.css in keeping up with latest Genesis coding standards
+
+09 OCT 2013 - version 3.0.2
+	* added landing Page Template
+	* changed hyphen to underscore for widget Page Template name in keeping with WordPress naming standards for specialized template files
