@@ -8,7 +8,7 @@ load_child_theme_textdomain( 'winfield', apply_filters( 'child_theme_textdomain'
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', __( 'Winfield Theme', 'winfield' ) );
 define( 'CHILD_THEME_URL', 'http://wpcanada.ca/our-themes/winfield' );
-define( 'CHILD_THEME_VERSION', '3.0.2' );
+define( 'CHILD_THEME_VERSION', '3.0.3' );
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5' );

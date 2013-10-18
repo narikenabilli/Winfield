@@ -96,3 +96,6 @@
 09 OCT 2013 - version 3.0.2
 	* added landing Page Template
 	* changed hyphen to underscore for widget Page Template name in keeping with WordPress naming standards for specialized template files
+
+18 OCT 2013 - version 3.0.3
+	* updated README files

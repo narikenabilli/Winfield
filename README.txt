@@ -55,9 +55,85 @@ If using Genesis Featured Posts widget here:
 RESPONSIVE MENUS
 	Winfield comes with built-in responsive support for the Primary, Secondary and Header navigation menus. They will kick in at the 768px breakpoint.
 
-	IMPORTANT!! If you are placing a menu in the header widget area and want it to be responsive make sure it is called Header Navigation. That is the name
-	the javascript file is looking for. If you call it anything else it won't work. Don't place an existing custom menu in that location. Create a NEW custom
-	menu, call it Header Navigation then use that menu in the header right widget area.
+	IMPORTANT!! Make sure to call your menus Primary Navigation, Secondary Navigation and Header Navigation as those are the names the javascript file is
+	looking for. It doesn't matter where you place them but they have to use those names.
+
+	While this child theme is internationalized if you wish to translate the output of the responsive menus you'll need to do so manually. This is because
+	the output is not generated from the javascript file but rather from the style sheet using the content property. I currently know of no way to
+	automatically translate CSS generated content.
+
+	At the 768px breakpoint you'll see that the menu output looks like this => HEADER MENU, PRIMARY MENU, SECONDARY MENU. To change this output open the
+	child theme's style.css file and scroll toward the bottom. The section you are looking for is this ...
+
+	/*
+	18 Media Queries
+	---------------------------------------------------------------------------------------------------- */
+
+	Continue scrolling down a bit until you find this ...
+
+	/* Menu Icon properties */
+
+	There are 3 blocks that will need to be manually changed.
+
+	FIRST BLOCK:
+
+	#header-menu-icon::before {
+		content: "HEADER MENU \25BC";
+	}
+
+	#primary-menu-icon::before {
+		content: 'PRIMARY MENU \25BC';
+	}
+
+	#secondary-menu-icon::before {
+		content: 'SECONDARY MENU \25BC';
+	}
+
+	SECOND BLOCK:
+
+	#header-menu-icon:hover::before {
+		content: "HEADER MENU \25BC";
+	}
+
+	#primary-menu-icon:hover::before {
+		content: 'PRIMARY MENU \25BC';
+	}
+
+	#secondary-menu-icon:hover::before {
+		content: 'SECONDARY MENU \25BC';
+	}
+
+	THIRD BLOCK:
+
+	#header-menu-icon:active::before {
+		content: "HEADER MENU \25BC";
+	}
+
+	#primary-menu-icon:active::before {
+		content: 'PRIMARY MENU \25BC';
+	}
+
+	#secondary-menu-icon:active::before {
+		content: 'SECONDARY MENU \25BC';
+	}
+
+	The First Block deals with the output of the menus normal state, the Second Block deals with the output of the menus hover state and the Third Block
+	deals with the output of the menus active (or onclick) state.
+
+	This is CSS generated content. Using header-menu for example, you see HEADER MENU on a mobile or when you re-size your desktop browser window because
+	of this line ... content: "HEADER MENU \25BC";
+
+	You may change HEADER MENU to whatever you want. The 25BC is a unicode which translates to an upside down triangle. Change the terms HEADER MENU,
+	PRIMARY MENU and SECONDARY MENU to whatever you'd like. Do so in ALL 3 instances as referenced above.
+
+	Let's use a real life example. Let's assume you operate a Dutch language website. You've translated the child theme using the included .POT file. Now
+	you want to change the phrase PRIMARY MENU. Swap out PRIMARY MENU for Hoofdmenu. It should now look like this ...
+
+	#header-menu-icon::before {
+	content: "Hoofdmenu \25BC";
+	}
+
+	Do so for all 3 instances.
 
 CONTENT BOXES
 	The custom content boxes make use of DIV classes. For example ...
